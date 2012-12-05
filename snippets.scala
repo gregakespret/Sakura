@@ -9,3 +9,14 @@ val data = Array("Five","strings","in","a","file!")
 printToFile(new File("example.txt"))(p => {
   data.foreach(p.println)
 })           
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+val fw = new FileWriter("example.txt", true)
+try {
+    events.foreach { event =>
+     fw.write(event.toString() + "\n")
+    }
+} finally {
+    fw.close() 
+}
